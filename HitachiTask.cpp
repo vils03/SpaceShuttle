@@ -3,15 +3,23 @@
 
 int main()
 {
+	std::cout << "Weather conditions for SPACE shuttle launch" << std::endl;
+	std::cout << "Enter file name: ";
+	std::string fileName;
+	std::cin >> fileName;
+	std::ifstream file(fileName);
+	if (!file.is_open())
+		throw std::exception("Error opening file!");
 	SpaceShuttle test;
-	std::ifstream file("weather.csv");
 	test.getInfoFromFile(file);
-	for (auto f : test.day) {
-		std::cout << f << " ";
-	}
-	std::cout << std::endl;
-	for (auto f : test.temperature) {
-		std::cout << f << " ";
-	}
+	test.getBestData();
+	test.writeToFile();
+	std::cout << "Enter your email: ";
+	std::string sendEmail;
+	std::cin >> sendEmail;
+	std::string password;
+	std::cin >> password;
+	std::string receiveEmail;
+	std::cin >> receiveEmail;
 }
 

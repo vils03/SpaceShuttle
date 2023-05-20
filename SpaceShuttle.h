@@ -4,27 +4,26 @@
 #include <sstream>
 #include <vector>
 #include <string>
-
-
-
-namespace globalConstants {
-	const size_t DAYS_COUNT = 16;
-}
-
+#include <queue>
 class SpaceShuttle
 {
-public:
-	std::vector<size_t> day{ globalConstants::DAYS_COUNT };
-	std::vector<size_t> temperature{ globalConstants::DAYS_COUNT };
-	std::vector<size_t> wind{ globalConstants::DAYS_COUNT };
-	std::vector<size_t> humidity{ globalConstants::DAYS_COUNT };
-	std::vector<size_t> precipitation{ globalConstants::DAYS_COUNT };
-	std::vector<size_t> lightning{ globalConstants::DAYS_COUNT };
-	std::vector<std::string> clouds{ globalConstants::DAYS_COUNT };
 
+	std::vector<size_t> day;
+	std::vector<size_t> temperature;
+	std::vector<size_t> wind;
+	std::vector<size_t> humidity;
+	std::vector<size_t> precipitation;
+	std::vector<std::string> lightning;
+	std::vector<std::string> clouds;
+	
+	std::vector<size_t> best;
 	size_t stringToNum(std::string str);
+public:
 	SpaceShuttle() = default;
 	void getInfoFromFile(std::ifstream& file);
-	void writeToFile(const char* fileName);
+	void getBestData();
+	void writeToFile();
+	std::vector<double> calculate(std::vector<size_t>);
+	double getMedian(std::vector<size_t>);
 };
 
