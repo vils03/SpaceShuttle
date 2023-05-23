@@ -31,6 +31,9 @@ std::vector<double> SpaceShuttle::calculate(std::vector<size_t> values) {
     res.push_back(med);
     return res;
 }
+void SpaceShuttle::getBestData() const
+{
+}
 void SpaceShuttle::writeToFile() {
     std::ofstream ofs("WeatherReport.csv");
     std::vector<size_t> bestTemp;
@@ -146,4 +149,5 @@ void SpaceShuttle::getBestData()
             best.push_back(i);
         }
     }
+    std::cout << "Best launch day is" << best[0];
 }

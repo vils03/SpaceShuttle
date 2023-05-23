@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include "SpaceShuttle.h"
 
 int main()
@@ -14,12 +14,6 @@ int main()
 	test.getInfoFromFile(file);
 	test.getBestData();
 	test.writeToFile();
-	std::cout << "Enter your email: ";
-	std::string sendEmail;
-	std::cin >> sendEmail;
-	std::string password;
-	std::cin >> password;
-	std::string receiveEmail;
-	std::cin >> receiveEmail;
+	
 }
 
